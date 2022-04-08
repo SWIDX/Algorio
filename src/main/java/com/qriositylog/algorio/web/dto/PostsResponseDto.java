@@ -1,7 +1,9 @@
 package com.qriositylog.algorio.web.dto;
 
 import com.qriositylog.algorio.domain.posts.Posts;
+import lombok.Getter;
 
+@Getter
 public class PostsResponseDto {
     private Long id;
     private String title;
