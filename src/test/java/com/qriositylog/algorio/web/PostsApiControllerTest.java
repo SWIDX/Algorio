@@ -41,6 +41,7 @@ public class PostsApiControllerTest {
     String title = "테스트 타이틀";
     String content = "테스트 내용";
     String author = "Queue-ri";
+    String tag = "tag1, tag2";
 
     @Test
     public void TestPostsSave() throws Exception {
@@ -48,6 +49,7 @@ public class PostsApiControllerTest {
                 .title(title)
                 .content(content)
                 .author(author)
+                .tag(tag)
                 .build();
 
         String url = "http://localhost:" + port + "/api/v1/posts";
@@ -60,6 +62,7 @@ public class PostsApiControllerTest {
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(title);
         assertThat(all.get(0).getContent()).isEqualTo(content);
+        assertThat(all.get(0).getTag()).isEqualTo(tag);
     }
 
     @Test
@@ -68,6 +71,7 @@ public class PostsApiControllerTest {
                 .title(title)
                 .content(content)
                 .author(author)
+                .tag(tag)
                 .build());
 
         Long updateId = savedPosts.getId();
