@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service
@@ -37,13 +39,21 @@ public class PostsService {
         Posts entity = postsRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 게시글이 없습니다.")
         );
-        return new PostsResponseDto(entity);
+        String tag = entity.getTag();
+        List<String> tagList = new ArrayList<>();
+        if (!Objects.equals(tag, "")) tagList = Arrays.asList(tag.split("\\s*,\\s*"));
+        return new PostsResponseDto(entity, tagList);
     }
 
     public List<PostsMetaResponseDto> findAll() {
         List<Posts> entities = postsRepository.findAll();
         List<PostsMetaResponseDto> metaList = new ArrayList<>(entities.size());
-        entities.forEach(entity -> metaList.add(new PostsMetaResponseDto(entity)));
+        for (Posts entity : entities) {
+            String tag = entity.getTag();
+            List<String> tagList = new ArrayList<>();
+            if (!Objects.equals(tag, "")) tagList = Arrays.asList(tag.split("\\s*,\\s*"));
+            metaList.add(new PostsMetaResponseDto(entity, tagList));
+        }
         return metaList;
     }
 }
