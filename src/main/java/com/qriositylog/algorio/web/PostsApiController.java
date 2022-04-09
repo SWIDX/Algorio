@@ -1,11 +1,14 @@
 package com.qriositylog.algorio.web;
 
 import com.qriositylog.algorio.service.posts.PostsService;
+import com.qriositylog.algorio.web.dto.PostsMetaResponseDto;
 import com.qriositylog.algorio.web.dto.PostsResponseDto;
 import com.qriositylog.algorio.web.dto.PostsSaveRequestDto;
 import com.qriositylog.algorio.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -29,4 +32,8 @@ public class PostsApiController {
     public PostsResponseDto findById(@PathVariable Long id) {
         return postsService.findById(id);
     }
+
+    // 모든 게시글 메타데이터 조회
+    @GetMapping("/api/v1/posts/all")
+    public List<PostsMetaResponseDto> findAll() { return postsService.findAll(); }
 }

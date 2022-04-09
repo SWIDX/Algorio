@@ -27,13 +27,13 @@ public class PostsRepositoryTest {
         String title = "테스트 제목";
         String content = "테스트 내용";
         String author = "Queue-ri";
-        String tag = "";
+        String tag = ""; // intentionally null string
 
-        // intentionally excluded tag
         postsRepository.save(Posts.builder()
                 .title(title)
                 .content(content)
                 .author(author)
+                .tag(tag)
                 .build());
 
         List<Posts> postsList = postsRepository.findAll();
@@ -42,5 +42,6 @@ public class PostsRepositoryTest {
         assertThat(posts.getTitle()).isEqualTo(title);
         assertThat(posts.getContent()).isEqualTo(content);
         assertThat(posts.getAuthor()).isEqualTo(author);
+        assertThat(posts.getTag()).isEqualTo(tag);
     }
 }

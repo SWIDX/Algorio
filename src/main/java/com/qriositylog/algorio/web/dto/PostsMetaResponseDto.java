@@ -6,18 +6,16 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class PostsResponseDto {
+public class PostsMetaResponseDto {
     private Long id;
     private String title;
     private String content;
-    private String author;
     private List<String> tags;
 
-    public PostsResponseDto(Posts entity, List<String> tagList) {
-        this.id = entity.getId();
-        this.title = entity.getTitle();
-        this.content = entity.getContent();
-        this.author = entity.getAuthor();
+    public PostsMetaResponseDto(Posts entity, List<String> tagList) {
+        id = entity.getId();
+        title = entity.getTitle();
+        content = entity.getContent();
         this.tags = tagList;
     }
 }

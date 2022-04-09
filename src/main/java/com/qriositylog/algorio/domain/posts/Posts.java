@@ -21,6 +21,8 @@ public class Posts {
     private String content;
 
     private String author;
+
+    @Column(nullable = false)
     private String tag;
 
     @Builder
