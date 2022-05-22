@@ -42,5 +42,6 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.imageLink = imageLink;
+        this.tag = tag;
     }
 }
