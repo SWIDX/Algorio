@@ -45,6 +45,11 @@ public class PostsService {
         return new PostsResponseDto(entity, tagList);
     }
 
+    @Transactional
+    public void deleteById(Long id) {
+        postsRepository.deleteById(id);
+    }
+
     public List<PostsMetaResponseDto> findAll() {
         List<Posts> entities = postsRepository.findAll();
         List<PostsMetaResponseDto> metaList = new ArrayList<>(entities.size());
