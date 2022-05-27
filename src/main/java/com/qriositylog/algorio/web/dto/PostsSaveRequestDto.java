@@ -11,13 +11,15 @@ public class PostsSaveRequestDto {
     private String title;
     private String content;
     private String author;
+    private String imageLink;
     private String tag;
 
     @Builder
-    public PostsSaveRequestDto(String title, String content, String author, String tag) {
+    public PostsSaveRequestDto(String title, String content, String author, String imageLink, String tag) {
         this.title = title;
         this.content = content;
         this.author = author;
+        this.imageLink = imageLink;
         this.tag = tag;
     }
 
@@ -26,6 +28,7 @@ public class PostsSaveRequestDto {
                 .title(title)
                 .content(content)
                 .author(author)
+                .imageLink(imageLink)
                 .tag(tag)
                 .build();
     }
