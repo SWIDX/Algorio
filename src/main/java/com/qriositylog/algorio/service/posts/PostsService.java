@@ -31,7 +31,7 @@ public class PostsService {
                 () -> new IllegalArgumentException("해당 게시글이 없습니다.")
         );
 
-        posts.update(requestDto.getTitle(), requestDto.getContent());
+        posts.update(requestDto.getTitle(), requestDto.getContent(), requestDto.getImageLink(), requestDto.getTag());
         return id;
     }
 
