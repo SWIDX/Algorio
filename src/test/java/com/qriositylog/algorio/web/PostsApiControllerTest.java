@@ -40,6 +40,7 @@ public class PostsApiControllerTest {
 
     String title = "테스트 타이틀";
     String content = "테스트 내용";
+    String imageLink = "https://avatars.githubusercontent.com/u/77003554?v=4";
     String author = "Queue-ri";
     String tag = "tag1, tag2";
 
@@ -48,6 +49,7 @@ public class PostsApiControllerTest {
         PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
                 .title(title)
                 .content(content)
+                .imageLink(imageLink)
                 .author(author)
                 .tag(tag)
                 .build();
@@ -62,6 +64,8 @@ public class PostsApiControllerTest {
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(title);
         assertThat(all.get(0).getContent()).isEqualTo(content);
+        assertThat(all.get(0).getImageLink()).isEqualTo(imageLink);
+        assertThat(all.get(0).getAuthor()).isEqualTo(author);
         assertThat(all.get(0).getTag()).isEqualTo(tag);
     }
 
