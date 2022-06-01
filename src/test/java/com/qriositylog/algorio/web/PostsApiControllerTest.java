@@ -74,6 +74,7 @@ public class PostsApiControllerTest {
         Posts savedPosts = postsRepository.save(Posts.builder()
                 .title(title)
                 .content(content)
+                .imageLink(imageLink)
                 .author(author)
                 .tag(tag)
                 .build());
@@ -85,6 +86,8 @@ public class PostsApiControllerTest {
         PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
                 .title(expectedTitle)
                 .content(expectedContent)
+                .imageLink(imageLink)
+                .tag(tag)
                 .build();
 
         String url = "http://localhost:" + port + "/api/v1/posts/" + updateId;
