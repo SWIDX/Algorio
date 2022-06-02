@@ -35,4 +35,10 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+
+	// Pass JVM arguments(i.e. -Dspring..) when gradle test
+	if ( project.hasProperty('jvmArgs') ) {
+		jvmArgs = (project.jvmArgs.split("\\s+") as List)
+
+	}
 }
