@@ -24,4 +24,4 @@ jobs:
       run: chmod +x gradlew
       
     - name: Test with Gradle
-      run: ./gradlew test
+      run: ./gradlew test -PjvmArgs="-Dspring.security.oauth2.client.registration.google.client-id=${{ secrets.GOOGLE_CLIENT_ID }} -Dspring.security.oauth2.client.registration.google.client-secret=${{ secrets.GOOGLE_CLIENT_SECRET }}"
