@@ -31,7 +31,7 @@ public class PostsService {
                 () -> new IllegalArgumentException("해당 게시글이 없습니다.")
         );
 
-        posts.update(requestDto.getTitle(), requestDto.getContent());
+        posts.update(requestDto.getTitle(), requestDto.getContent(), requestDto.getImageLink(), requestDto.getTag());
         return id;
     }
 
@@ -43,6 +43,11 @@ public class PostsService {
         List<String> tagList = new ArrayList<>();
         if (!Objects.equals(tag, "")) tagList = Arrays.asList(tag.split("\\s*,\\s*"));
         return new PostsResponseDto(entity, tagList);
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        postsRepository.deleteById(id);
     }
 
     public List<PostsMetaResponseDto> findAll() {

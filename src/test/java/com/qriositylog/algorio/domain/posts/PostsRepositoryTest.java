@@ -26,12 +26,14 @@ public class PostsRepositoryTest {
     public void saveTest() {
         String title = "테스트 제목";
         String content = "테스트 내용";
+        String imageLink = ""; // intentionally null string
         String author = "Queue-ri";
         String tag = ""; // intentionally null string
 
         postsRepository.save(Posts.builder()
                 .title(title)
                 .content(content)
+                .imageLink(imageLink)
                 .author(author)
                 .tag(tag)
                 .build());
@@ -41,6 +43,7 @@ public class PostsRepositoryTest {
         Posts posts = postsList.get(0);
         assertThat(posts.getTitle()).isEqualTo(title);
         assertThat(posts.getContent()).isEqualTo(content);
+        assertThat(posts.getImageLink()).isEqualTo(imageLink);
         assertThat(posts.getAuthor()).isEqualTo(author);
         assertThat(posts.getTag()).isEqualTo(tag);
     }

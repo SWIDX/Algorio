@@ -9,13 +9,13 @@ import java.util.List;
 public class PostsMetaResponseDto {
     private Long id;
     private String title;
-    private String content;
+    private String imageLink;
     private List<String> tags;
 
     public PostsMetaResponseDto(Posts entity, List<String> tagList) {
         id = entity.getId();
         title = entity.getTitle();
-        content = entity.getContent();
+        imageLink = entity.getImageLink();
         this.tags = tagList;
     }
 }

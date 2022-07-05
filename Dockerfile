@@ -9,5 +9,6 @@ ENTRYPOINT [ \
     "-Dspring.security.oauth2.client.registration.google.client-id=${CLIENT_ID}", \
     "-Dspring.security.oauth2.client.registration.google.client-secret=${CLIENT_SECRET}", \
     "-jar", \
-    "/app.jar" \
+    "/app.jar", \
+    "-web -webAllowOthers -tcp -tcpAllowOthers -browser -ifNotExists" \
     ]

@@ -20,6 +20,9 @@ public class Posts {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String imageLink;
+
     @Column(nullable = false)
     private String author;
 
@@ -27,15 +30,18 @@ public class Posts {
     private String tag;
 
     @Builder
-    public Posts(String title, String content, String author, String tag) {
+    public Posts(String title, String content, String imageLink, String author, String tag) {
         this.title = title;
         this.content = content;
+        this.imageLink = imageLink;
         this.author = author;
         this.tag = tag;
     }
 
-    public void update(String title, String content) {
+    public void update(String title, String content, String imageLink, String tag) {
         this.title = title;
         this.content = content;
+        this.imageLink = imageLink;
+        this.tag = tag;
     }
 }
