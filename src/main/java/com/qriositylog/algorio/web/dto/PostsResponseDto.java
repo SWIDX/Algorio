@@ -11,6 +11,7 @@ public class PostsResponseDto {
     private String title;
     private String content;
     private String author;
+    private String imageLink;
     private List<String> tags;
 
     public PostsResponseDto(Posts entity, List<String> tagList) {
@@ -18,6 +19,7 @@ public class PostsResponseDto {
         this.title = entity.getTitle();
         this.content = entity.getContent();
         this.author = entity.getAuthor();
+        this.imageLink = entity.getImageLink();
         this.tags = tagList;
     }
 }

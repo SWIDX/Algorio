@@ -33,6 +33,12 @@ public class PostsApiController {
         return postsService.findById(id);
     }
 
+    // 삭제
+    @DeleteMapping("/api/v1/posts/{id}")
+    public void deleteById(@PathVariable Long id) {
+        postsService.deleteById(id);
+    }
+
     // 모든 게시글 메타데이터 조회
     @GetMapping("/api/v1/posts/all")
     public List<PostsMetaResponseDto> findAll() { return postsService.findAll(); }
