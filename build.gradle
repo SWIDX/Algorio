@@ -23,6 +23,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'com.h2database:h2'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'com.google.api-client:google-api-client:1.31.5'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation group: 'com.google.http-client', name: 'google-http-client-jackson2', version: '1.41.6'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -31,4 +36,10 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+
+	// Pass JVM arguments(i.e. -Dspring..) when gradle test
+	if ( project.hasProperty('jvmArgs') ) {
+		jvmArgs = (project.jvmArgs.split("\\s+") as List)
+
+	}
 }
